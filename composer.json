@@ -1,0 +1,22 @@
+{
+	"minimum-stability": "dev",
+    "require": {
+        "php": "^7.0"
+    },
+    "autoload": {
+		"psr-4": {
+			"Lib\\": "Lib",
+			"Lib\\Cards\\": "Lib\\Cards"
+		}
+    },
+    "scripts": {
+        "test": "./vendor/phpunit/phpunit/phpunit",
+        "docs": [
+            "./vendor/phpdocumentor/phpdocumentor/bin/phpdoc run -d Lib/ -t docs"
+        ]
+    },
+    "require-dev": {
+    	"phpdocumentor/phpdocumentor": "dev-master",
+        "phpunit/phpunit": "^7"
+    }
+}
