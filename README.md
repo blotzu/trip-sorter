@@ -1,6 +1,6 @@
 # Trip Sorter
 
-A simple class to generate sorted trips from an unsorted sequence of trip segments.
+A simple class to generate sorted trips from an unsorted sequence of trip segments. <br />
 Sort complexity: O(n)
 
 ## Dependencies
@@ -9,10 +9,10 @@ PHP 7
 
 https://thishosting.rocks/install-php-on-ubuntu/
 
-sudo apt-get update && sudo apt-get upgrade
-sudo apt install php php-xml php-mbstring php-intl
+sudo apt-get update && sudo apt-get upgrade <br />
+sudo apt install php php-xml php-mbstring php-intl <br />
 
-Composer
+Composer <br />
 
 https://getcomposer.org/download/
 
@@ -24,7 +24,7 @@ https://getcomposer.org/download/
 
 ## Docs 
 
-The docs are generated under the docs folder.
+The docs are generated under the docs folder. <br />
 They can be generated using:
 
 	php composer.phar run-script docs
