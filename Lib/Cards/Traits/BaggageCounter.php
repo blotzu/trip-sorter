@@ -16,7 +16,7 @@ trait BaggageCounter
 	 * The baggage drop counter number
 	 * @var string
 	 */
-	private $baggageCounter;
+	private $baggageCounter = "";
 
 	/**
 	 * Returns the baggage drop counter number
@@ -34,7 +34,7 @@ trait BaggageCounter
 	 */
 	public function setBaggageCounterNumber(string $baggageCounter = ""): void
 	{
-		$this->baggageCounter = $baggageCounter;
+		$this->baggageCounter = trim($baggageCounter);
 	}
 
 	/**
@@ -48,7 +48,7 @@ trait BaggageCounter
 			return 'Baggage will we automatically transferred from your last leg.';
 		}
 
-		return sprintf('Baggage drop at ticket counter 344.',
+		return sprintf('Baggage drop at ticket counter %1$s.',
 			$this->baggageCounter);
 	}
 }

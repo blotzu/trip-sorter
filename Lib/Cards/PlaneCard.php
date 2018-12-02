@@ -23,8 +23,9 @@ class PlaneCard extends BoardingCard
 	 * @param type|string $vehicleNumber The vehicle number
 	 * @param type|string $gateNumber The airport gate number
 	 * @param type|string $seatNumber The airplane seat number
+	 * @param type|string $baggageCounter The baggage counter number
 	 */
-	public function __construct(string $source = "", string $target = "", string $vehicleNumber = "", string $gateNumber = "", string $seatNumber = "")
+	public function __construct(string $source = "", string $target = "", string $vehicleNumber = "", string $gateNumber = "", string $seatNumber = "", string $baggageCounter = "")
 	{
 		parent::__construct($source, $target);
 
@@ -48,6 +49,12 @@ class PlaneCard extends BoardingCard
 			throw new \InvalidArgumentException("Invalid seat number ". $seatNumber);
 		}
 		$this->setSeatNumber($seatNumber);
+
+		$baggageCounter = trim($baggageCounter);
+		if ($baggageCounter !== "")
+		{
+			$this->setBaggageCounterNumber($baggageCounter);
+		}
 	}
 
 	/**

@@ -49,7 +49,7 @@ trait SeatNumber
 	 */
 	public function getSeatDescription()
 	{
-		if (is_null($this->seatNumber) || $this->seatNumber === "")
+		if ($this->seatNumber === "")
 		{
 			return 'No seat assignment.';
 		}

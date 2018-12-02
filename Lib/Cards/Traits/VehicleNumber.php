@@ -16,7 +16,7 @@ trait VehicleNumber
 	 * The vehicle number
 	 * @var string
 	 */
-	private $vehicleNumber;
+	private $vehicleNumber = "";
 
 	/**
 	 * Returns the vehicle number

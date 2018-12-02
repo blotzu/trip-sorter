@@ -5,6 +5,7 @@ use PHPUnit\Framework\TestCase;
 use Lib\Trip;
 use Lib\Cards\TrainCard;
 use Lib\Cards\AirportBusCard;
+use Lib\Cards\PlaneCard;
 
 class TripTests extends TestCase  
 {
@@ -59,9 +60,11 @@ class TripTests extends TestCase
     		"Berlin Airport" => new AirportBusCard($source = "Berlin Airport", $target = "Berlin"),
     		"Berlin" => new TrainCard($source = "Berlin", $target = "Stockholm", $vehicleNumber = "A54", $seatNumber = "B4"),
     		"Stockholm" => new TrainCard($source = "Stockholm", $target = "Moscow", $vehicleNumber = "KT1", $seatNumber = "A12"),
+    		"Moscow" => new PlaneCard($source = "Moscow", $target = "Beijing", $vehicleNumber = "AF31", $seatNumber = "G12", $gateNumber = "14", $baggageCounter = "44"),
+    		"Beijing" => new PlaneCard($source = "Beijing", $target = "Tokyo", $vehicleNumber = "GH12", $seatNumber = "A4", $gateNumber = "2"),
     	];
     	$firstNode = $nodes["Madrid"];
-    	$lastNode = $nodes["Stockholm"];
+    	$lastNode = $nodes["Beijing"];
     	$trip = new Trip($parents = $nodes, $startNode = "Madrid");
 
 		$expectedSummary = "1. Take the airport bus from Madrid to Madrid Airport. No seat assignment." . PHP_EOL
@@ -69,7 +72,11 @@ class TripTests extends TestCase
 . "3. Take the airport bus from Berlin Airport to Berlin. No seat assignment." . PHP_EOL
 . "4. Take train A54 from Berlin to Stockholm. No seat assignment." . PHP_EOL
 . "5. Take train KT1 from Stockholm to Moscow. No seat assignment." . PHP_EOL
-. "6. You have arrived at your final destination." . PHP_EOL;
+. "6. From Moscow, take flight AF31 to Beijing. Gate G12, seat 14." . PHP_EOL
+. "Baggage drop at ticket counter 44." . PHP_EOL
+. "7. From Beijing, take flight GH12 to Tokyo. Gate A4, seat 2." . PHP_EOL
+. "Baggage will we automatically transferred from your last leg." . PHP_EOL
+. "8. You have arrived at your final destination." . PHP_EOL;
 
 		$this->assertEquals(array_values($parents), iterator_to_array($trip, $use_keys = false), "Incorrect result order");
 		$this->assertEquals($expectedSummary, $trip->printSummary(), "Incorrect trip summary");
