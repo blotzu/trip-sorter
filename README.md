@@ -1,6 +1,6 @@
 # Trip Sorter
 
-A simple class to generate sorted trips from an unsorted sequence of trip segments
+A simple class to generate sorted trips from an unsorted sequence of trip segments.
 Sort complexity: O(n)
 
 ## Dependencies

@@ -89,12 +89,25 @@ class PlaneCardTests extends TestCase
     /**
      * Tests the card properties accessors return the correct values
      */
-    public function test_GetTripDescription_AllProperties(): void
+    public function test_GetTripDescription_MissingBaggageCounter(): void
     {
         $card = new PlaneCard($source = "Source", $target = "Target", $vehicleNumber = "AB1", $gateNumber = "3", $seatNumber = "123");
 
         $expectedDescription = "From Source, take flight AB1 to Target. Gate 3, seat 123." . PHP_EOL
 . "Baggage will we automatically transferred from your last leg.";
+
+        $this->assertEquals($expectedDescription, $card->getTripDescription(), "Incorrect trip description");
+    }
+
+    /**
+     * Tests the card properties accessors return the correct values
+     */
+    public function test_GetTripDescription_AllProperties(): void
+    {
+        $card = new PlaneCard($source = "Source", $target = "Target", $vehicleNumber = "AB1", $gateNumber = "3", $seatNumber = "123", $baggageCounter = "456");
+
+        $expectedDescription = "From Source, take flight AB1 to Target. Gate 3, seat 123." . PHP_EOL
+. "Baggage drop at ticket counter 456.";
 
         $this->assertEquals($expectedDescription, $card->getTripDescription(), "Incorrect trip description");
     }
