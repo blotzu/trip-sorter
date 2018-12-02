@@ -9,8 +9,8 @@ PHP 7
 
 https://thishosting.rocks/install-php-on-ubuntu/
 
-sudo apt-get update && sudo apt-get upgrade <br />
-sudo apt install php php-xml php-mbstring php-intl <br />
+	apt-get update && apt-get upgrade
+	apt-get install php php-xml php-mbstring php-intl
 
 Composer <br />
 
